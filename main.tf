@@ -13,8 +13,7 @@ locals {
     "region:${var.region}",
     "owner:${var.owner}",
     "workspace:${terraform.workspace}",
-    "provider:ibmcloud",
-    "deployed:${local.deploy_date}"
+    "provider:ibmcloud"
   ]
 }
 
