@@ -1,7 +1,34 @@
 variable "region" {
   type        = string
-  description = "The IBM Cloud region where VPC and related resources will be deployed. Use the command `ibmcloud is regions` to list available regions."
-  default     = "us-south"
+  description = "The IBM Cloud region where the VPC will be created."
+}
+
+variable "prefix" {
+  type        = string
+  description = "The prefix that will be used for all resources as part of this lab."
+}
+
+variable "owner" {}
+
+#####################################################
+# Variables with Default Parameters
+#####################################################
+variable "default_address_prefix" {
+  type        = string
+  description = "Indicates whether a default address prefix should be automatically created for each zone in this VPC."
+  default     = "auto"
+}
+
+variable "classic_access" {
+  type        = bool
+  description = "Indicates whether the VPC supports Classic access. Default is false."
+  default     = false
+}
+
+variable "number_of_addresses" {
+  type        = number
+  description = "The number of IPv4 addresses to allocate for this subnet."
+  default     = 256
 }
 
 variable "existing_resource_group" {
@@ -10,4 +37,3 @@ variable "existing_resource_group" {
   default     = null
 }
 
-variable "owner" {}
